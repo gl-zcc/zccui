@@ -49,19 +49,24 @@ function styleInject(css, ref) {
 }
 
 var css_248z =
-  '.button {\n  background: none;\n  padding: 5px 9px;\n  border-radius: 4px;\n  border: none;\n  background: #d3d2ce;\n  color: #fff;\n  font-size: 14px;\n  margin-right: 10px;\n}\n.primary {\n  background: gold;\n}\n.red {\n  background: #d83232;\n}\n';
+  '.index_button__upLUq {\n  background: none;\n  padding: 5px 9px;\n  border-radius: 4px;\n  border: none;\n  background: #d3d2ce;\n  color: #fff;\n  font-size: 14px;\n  margin-right: 10px;\n}\n.index_primary__22HXE {\n  background: gold;\n}\n.index_red__1-Y-1 {\n  background: #d83232;\n}\n';
+var styles = {
+  button: 'index_button__upLUq',
+  primary: 'index_primary__22HXE',
+  red: 'index_red__1-Y-1',
+};
 styleInject(css_248z);
 
-console.log(css_248z);
+console.log(styles);
 
 function Button(props) {
   return /*#__PURE__*/ React__default['default'].createElement(
     'button',
     {
       className:
-        css_248z.button +
+        styles.button +
         ' ' +
-        (css_248z[props.type] ? css_248z[props.type] : css_248z.define),
+        (styles[props.type] ? styles[props.type] : styles.define),
     },
     props.children || 'button',
   );
