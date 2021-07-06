@@ -1,52 +1,42 @@
 {
+  "private": true,
   "name": "zccui",
-  "version": "0.1.2",
-  "private": false,
-  "author": "gl-zcc",
-  "license": "MIT",
-  "homepage": "https://github.com/gl-zcc/zccui",
-  "repository": {
-    "type": "git",
-    "url": "git@github.com:gl-zcc/zccui.git"
-  },
-  "files": [
-    "dist"
-  ],
-  "keywords": [
-    "React",
-    "Component"
-  ],
-  "description": "A library of react components, which mainly stores components that can be reused by all business lines of AI-Indeeded Company.",
-  "main": "dist/index.js",
-  "module": "dist/index.js",
-  "types": "dist/index.d.ts",
-
+  "version": "1.0.0",
   "scripts": {
-    "clean": "rimraf ./dist",
-    "build:ts": "tsc -p tsconfig.build.json",
-    "build:css": "lessc ./src/components/button/index.css ./dist/button/index.css",
-    "build": "npm run clean && npm run build:ts && npm run build:css",
-    "start": "react-scripts start",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "prepublishOnly": "npm run build"
+    "start": "dumi dev",
+    "docs:build": "dumi build",
+    "docs:deploy": "gh-pages -d docs-dist",
+    "build": "father-build",
+    "deploy": "npm run docs:build && npm run docs:deploy",
+    "release": "npm run build && npm publish",
+    "prettier": "prettier --write \"**/*.{js,jsx,tsx,ts,less,md,json}\"",
+    "test": "umi-test",
+    "test:coverage": "umi-test --coverage"
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
+  "typings": "dist/index.d.ts",
+  "gitHooks": {
+    "pre-commit": "lint-staged"
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
+  "lint-staged": {
+    "*.{js,jsx,less,md,json}": [
+      "prettier --write"
     ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
+    "*.ts?(x)": [
+      "prettier --parser=typescript --write"
     ]
+  },
+  "dependencies": {
+    "react": "^16.12.0"
+  },
+  "devDependencies": {
+    "@umijs/test": "^3.0.5",
+    "dumi": "^1.0.16",
+    "father-build": "^1.17.2",
+    "gh-pages": "^3.0.0",
+    "lint-staged": "^10.0.7",
+    "prettier": "^2.2.1",
+    "yorkie": "^2.0.0"
   }
 }
