@@ -1,7 +1,22 @@
 {
-  "private": true,
+  "private": false,
   "name": "zccui",
-  "version": "1.0.0",
+  "version": "0.1.3",
+  "author": "gl-zcc",
+  "license": "MIT",
+  "homepage": "https://github.com/gl-zcc/zccui",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:gl-zcc/zccui.git"
+  },
+  "files": [
+    "dist"
+  ],
+  "keywords": [
+    "React",
+    "Component",
+    "React-UI"
+  ],
   "scripts": {
     "start": "dumi dev",
     "docs:build": "dumi build",
